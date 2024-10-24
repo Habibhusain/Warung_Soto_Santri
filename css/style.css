@@ -1,0 +1,438 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #444;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+h2 {
+    margin: 15px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"], input[type="number"], input[type="date"], input[type="file"], textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type="submit"] {
+    padding: 10px 40px;
+    background-color: #007BFF;
+    display: flex;
+    margin: auto;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Container utama */
+.content-laporan {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Judul laporan */
+.content-laporan-transaksi-judul h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+}
+
+/* Tabel laporan */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table thead {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+table thead th {
+    padding: 12px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Tampilan hover untuk baris tabel */
+table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Tombol kembali ke dashboard */
+.back-button {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 20px;
+    width: 180px;
+    background-color: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back-button:hover {
+    background-color: #555555;
+}
+
+/* Login form */
+.container-login form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.container-login label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.container-login input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container-login button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.container-login button:hover {
+    background-color: #0056b3;
+}
+
+/* Tambahan untuk halaman produk dan transaksi */
+.container-produk,.container-stok, .content-pengeluaran, .boxes-catat {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container-daftar-produk table,.container-daftar-stok table {
+    margin-top: 20px;
+}
+
+.container-daftar-produk img,.container-daftar-stok img {
+    width: 50px;
+    height: 50px;
+}
+
+.boxes-catat-transaksi-judul h2, .content-pengeluaran-judul h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+}
+
+.boxes-catat-transaksi {
+    margin-bottom: 20px;
+}
+
+.boxes-catat-transaksi button {
+    width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #4CAF50; 
+    padding: 10px; 
+    text-align: right; 
+    position: sticky; 
+    top:0;
+}
+
+.navbar-links {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.navbar a {
+    color: white; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+    margin-left: 15px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+}
+
+.navbar a:hover {
+    background-color: #0056b3; 
+}
+.navigasi {
+    background-color: #0056b3; 
+    padding: 10px; 
+    text-align: right; 
+    position: sticky; 
+    top:0;
+}
+.navbar-links {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.navigasi a {
+    color: white; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+    margin-left: 15px;
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+}
+
+.navigasi a:hover {
+    background-color: #4CAF50; 
+    color: white; 
+}
+
+.box-omzet {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-total-omzet {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.box-total-omzet h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.box-total-omzet p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+.content-dashboard {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-dashboard-judul {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.content-dashboard-judul h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+.content-dashboard-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.content-dashboard-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.content-dashboard-box ul li {
+    margin: 15px 0;
+}
+
+.content-dashboard-box ul li a {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-dashboard-box ul li a:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.table-action {
+    display: flex;
+    gap: 10px; /* Jarak antara link Edit dan Hapus */
+}
+
+.table-action a {
+    padding: 5px 10px; /* Ukuran padding untuk tombol */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff; /* Warna teks */
+    font-weight: bold; /* Teks tebal */
+    text-align: center; /* Teks berada di tengah */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transisi efek */
+}
+
+.table-action a.edit {
+    background-color: #4CAF50; /* Warna hijau untuk Edit */
+}
+
+.table-action a.edit:hover {
+    background-color: #45a049; /* Warna hijau lebih gelap saat hover */
+    transform: scale(1.05); /* Efek sedikit membesar saat hover */
+}
+
+.table-action a.hapus {
+    background-color: #f44336; /* Warna merah untuk Hapus */
+}
+
+.table-action a.hapus:hover {
+    background-color: #e53935; /* Warna merah lebih gelap saat hover */
+    transform: scale(1.05); /* Efek sedikit membesar saat hover */
+}
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+/* Responsif */
+@media (max-width: 768px) {
+    .content-dashboard-judul h1 {
+        font-size: 28px;
+    }
+
+    .content-dashboard-box {
+        width: 90%;
+    }
+
+    .content-dashboard-box ul li a {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-dashboard-judul h1 {
+        font-size: 24px;
+    }
+
+    .content-dashboard-box {
+        padding: 15px;
+    }
+
+    .content-dashboard-box ul li {
+        margin: 10px 0;
+    }
+
+    .content-dashboard-box ul li a {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}
