@@ -1,28 +1,30 @@
 <?php
-
 require "config.php";
 
-function connect_db(){
+function connect_db() {
     $db = new mysqli (HOSTNAME,USERNAME, PASSWORD, DATABASE);
+
     return $db;
 }
 
-function login(){
+function login() {
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     $login_soto = "SELECT * FROM pengguna WHERE username = '$username'";
     $login = connect_db()->query($login_soto);
 
-    if($login ->num_rows > 0){
+    if ($login ->num_rows > 0) {
         $pengguna = $login->fetch_assoc();
         $_SESSION['id'] = $pengguna['id'];
         return $pengguna;
-    }else{
+    } else {
         return false;
     }
 }
 function ambil_produk() {
+    
     $sql = "SELECT * FROM produk";
     $result = connect_db()->query($sql);
     $produk = [];
@@ -35,16 +37,18 @@ function ambil_produk() {
 }
 
 function tambah_produk() {
+
     $nama_produk = $_POST['nama_produk'];
     $foto_produk = upload_foto_produk();
 
     if ($foto_produk) {
         $sql_tambah_produk = "INSERT INTO produk (nama_produk, foto) VALUES ('$nama_produk', '$foto_produk')";
+
         return connect_db()->query($sql_tambah_produk);
     }
 }
-function upload_foto_produk()
-{
+function upload_foto_produk() {
+
     $ambil_ukuran_file = $_FILES['foto']['size'];
     $ukuran_diizinkan = 10000000;
 
@@ -71,7 +75,8 @@ function upload_foto_produk()
         return FALSE;
     }
 }
-function catat_transaksi(){
+function catat_transaksi() {
+
     $id_pengguna = $_SESSION['id']['id'];
     $nama_barang = $_POST['nama_barang'];
     $jumlah = $_POST['jumlah'];
@@ -86,7 +91,8 @@ function catat_transaksi(){
 
 }
 
-function catat_pengeluaran(){
+function catat_pengeluaran() {
+
     $deskripsi = $_POST['deskripsi'];
     $jumlah_pengeluaran = $_POST['jumlah_pengeluaran'];
 
@@ -94,10 +100,10 @@ function catat_pengeluaran(){
     $eksekusi_pengeluaran = connect_db()->query($catat_pengeluaran);
 
     return $eksekusi_pengeluaran;
-
 }
 
-function laporan_transaksi(){
+function laporan_transaksi() {
+
     $id_pengguna = $_SESSION['id']['id'];
 
     $sql_laporan_transaksi = "SELECT * FROM transaksi WHERE id_pengguna = '$id_pengguna'";
@@ -114,6 +120,7 @@ function laporan_transaksi(){
 function total_pemasukan() {
     $sql_total_pemasukan = "SELECT SUM(total_harga) AS total_pemasukan FROM transaksi ";
     $result = connect_db()->query($sql_total_pemasukan);
+
     return $result->fetch_assoc();
 }
 
@@ -121,25 +128,30 @@ function total_pengeluaran() {
     $id_pengguna = $_SESSION['id']['id'];
     $sql_total_pengeluaran = "SELECT SUM(jumlah_pengeluaran) AS total_pengeluaran FROM pengeluaran";
     $result = connect_db()->query($sql_total_pengeluaran);
+
     return $result->fetch_assoc();
 }
 
 function total_saldo() {
+
     $pemasukan = total_pemasukan()['total_pemasukan'] ?? 0; 
     $pengeluaran = total_pengeluaran()['total_pengeluaran'] ?? 0; 
     return $pemasukan - $pengeluaran;
 }
 
 function tambah_stok() {
+
     $nama_barang = $_POST['nama_barang'];
     $jumlah = $_POST['jumlah'];
     $satuan = $_POST['satuan'];
 
-        $sql_tambah_stok = "INSERT INTO stok (nama_barang, jumlah, satuan ) VALUES ('$nama_barang', '$jumlah', '$satuan')";
-        return connect_db()->query($sql_tambah_stok);
+    $sql_tambah_stok = "INSERT INTO stok (nama_barang, jumlah, satuan ) VALUES ('$nama_barang', '$jumlah', '$satuan')";
+
+    return connect_db()->query($sql_tambah_stok);
 }
 
 function ambil_stok() {
+
     $sql = "SELECT * FROM stok";
     $result = connect_db()->query($sql);
     $stok = [];
@@ -151,23 +163,29 @@ function ambil_stok() {
     return $stok;
 }
 
-function tampil_pengeluaran(){
+function tampil_pengeluaran() {
+
     $tampil_pengeluaran = "SELECT * FROM pengeluaran";
     $pengeluaran = connect_db()->query($tampil_pengeluaran);
     $result = array();
 
-    while($row = $pengeluaran->fetch_assoc()){
+    while ($row = $pengeluaran->fetch_assoc()) {
         $result[] = $row;
     }
 
     return $result;
 }
+
 function ambil_produk_by_id($id) {
+
     $query = "SELECT * FROM produk WHERE id = $id";
     $result = connect_db()->query($query);
+
     return $result->fetch_assoc();
 }
+
 function edit_produk($id) {
+
     $nama_produk = $_POST['nama_produk'];
     
     // Proses upload foto jika ada
@@ -190,8 +208,8 @@ function edit_produk($id) {
     return $query;
 }
 
-function delete_produk()
-{
+function delete_produk() {
+
     $id_produk = $_GET['id'];
 
     $delete_produk = "DELETE FROM produk WHERE id = '$id_produk'";
@@ -200,7 +218,8 @@ function delete_produk()
     return $delete;
 }
 
-function tampil_transaksi(){
+function tampil_transaksi() {
+
     $tampil_transaksi = "SELECT * FROM transaksi";
     $transaksi = connect_db()->query($tampil_transaksi);
     $result = array();
@@ -208,5 +227,6 @@ function tampil_transaksi(){
     while($row = $transaksi->fetch_assoc()){
         $result[]=$row;
     }
+
     return $result;
 }

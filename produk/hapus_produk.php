@@ -2,12 +2,12 @@
 
 require "../functions.php";
 
-if(delete_produk()){
+if (delete_produk()) {
     echo "<script>
     alert('Produk Berhasil di Hapus.');
     window.location = 'produk.php'; 
     </script>";
-}else{
+} else {
     echo "<script>
     alert('Produk Gagal di Hapus.');
     window.location = 'produk.php'; 

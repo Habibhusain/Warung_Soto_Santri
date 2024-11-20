@@ -2,12 +2,12 @@
 session_start();
 require "../functions.php";
 
-if(!isset($_SESSION['id'])){
-echo "<script>
-alert('Login Terlebih Dahulu');
-window.location = '../index.php';
-</script>";
-}
+if (!isset($_SESSION['id'])) {
+    echo "<script>
+    alert('Login Terlebih Dahulu');
+    window.location = '../index.php';
+    </script>";
+    }
 
 
 ?>
@@ -45,7 +45,7 @@ window.location = '../index.php';
         </tr>
         </thead>
         <tbody>
-        <?php $no= 1; foreach(laporan_transaksi() as $row): ?>
+        <?php $no= 1; foreach (laporan_transaksi() as $row): ?>
 
             <tr>
                 <td><?php echo $no;?></td>
